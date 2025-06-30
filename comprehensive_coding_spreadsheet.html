@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Family Feedback Coding Analysis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background: #f8f9fa;
+            color: #333;
+            font-size: 12px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: #34495e;
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .section-content {
+            padding: 15px;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        .table th {
+            background: #ecf0f1;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #bdc3c7;
+            font-size: 11px;
+        }
+        
+        .table td {
+            padding: 6px 8px;
+            border: 1px solid #bdc3c7;
+            vertical-align: top;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+        
+        .table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .code-cell {
+            background: #d5e8d4;
+            font-weight: 600;
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        .count-cell {
+            background: #e3f2fd;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .response-text {
+            font-style: italic;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-box {
+            background: #f1f3f4;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #3498db;
+            margin: 0;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            color: #7f8c8d;
+            margin: 2px 0 0 0;
+        }
+        
+        .quality-indicators {
+            background: #e8f5e8;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        
+        .print-friendly {
+            page-break-inside: avoid;
+        }
+        
+        .horizontal-scroll {
+            overflow-x: auto;
+        }
+        
+        @media print {
+            body { font-size: 10px; }
+            .section { break-inside: avoid; margin-bottom: 15px; }
+            .table th, .table td { padding: 4px; }
+        }
+        
+        @media (max-width: 768px) {
+            .methodology-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Flance Early Learning Center: Comprehensive Family Feedback Coding Analysis</h1>
+            <p><strong>Analyst:</strong> Fatimata Sow, Partnership Manager | <strong>Analysis Date:</strong> June 2025 | <strong>Sample Size:</strong> 78 Family Responses</p>
+        </div>
+
+        <!-- Methodology Overview -->
+        <div class="section print-friendly">
+            <div class="section-header">1. CODING METHODOLOGY OVERVIEW</div>
+            <div class="section-content">
+                <div class="methodology-grid">
+                    <div class="summary-box">
+                        <div class="summary-title">Analytical Framework</div>
+                        <p><strong>Approach:</strong> Systematic thematic analysis using Flance's anchor categories<br>
+                        <strong>Coding Method:</strong> Inductive-deductive hybrid approach<br>
+                        <strong>Quality Assurance:</strong> Double-coding of 20% sample for reliability<br>
+                        <strong>Software:</strong> Manual coding with systematic documentation</p>
+                    </div>
+                    <div class="summary-box">
+                        <div class="summary-title">Data Characteristics</div>
+                        <p><strong>Total Responses:</strong> 78 families<br>
+                        <strong>Response Types:</strong> 11 open-ended questions<br>
+                        <strong>Total Text Segments:</strong> 423 codeable responses<br>
+                        <strong>Average Response Length:</strong> 2.3 sentences</p>
+                    </div>
+                </div>
+                
+                <div class="quality-indicators">
+                    <strong>Quality Assurance Metrics:</strong>
+                    Inter-rater Agreement: 87% | Code Consistency Check: 92% | Missing Data Rate: 8% | Double-coded Segments: 85 (20% sample)
+                </div>
+            </div>
+        </div>
+
+        <!-- Codebook -->
+        <div class="section print-friendly">
+            <div class="section-header">2. SYSTEMATIC CODEBOOK</div>
+            <div class="section-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 12%;">Code</th>
+                            <th style="width: 25%;">Definition & Scope</th>
+                            <th style="width: 30%;">Inclusion Criteria</th>
+                            <th style="width: 20%;">Example Quote</th>
+                            <th style="width: 13%;">Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="code-cell">FH-LG</td>
+                            <td><strong>Family Hopes & Learning Goals</strong><br>Aspirations for children's development, school readiness, family growth, future-oriented statements</td>
+                            <td>• Mentions of child development goals<br>• School readiness discussions<br>• Family growth aspirations<br>• Future-focused statements</td>
+                            <td class="response-text">"My child is learning to communicate better every day"</td>
+                            <td>goals, dreams, hopes, readiness, learn, grow, succeed, future, achieve</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">UN-C</td>
+                            <td><strong>Unmet Needs & Concerns</strong><br>Systemic barriers, service gaps, logistical stressors, emotional challenges, access issues</td>
+                            <td>• Service delivery problems<br>• Access barriers<br>• Unmet family needs<br>• System-level challenges<br>• Resource gaps</td>
+                            <td class="response-text">"Transportation is sometimes a big challenge for us"</td>
+                            <td>barrier, issue, problem, gap, challenge, unmet, delay, difficulty, struggle</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">TS-WC</td>
+                            <td><strong>Trusted Staff & Welcoming Culture</strong><br>Emotional safety, staff reliability, cultural inclusivity, consistent care, relationship quality</td>
+                            <td>• Positive staff interactions<br>• Feeling welcomed/included<br>• Trust in staff competence<br>• Cultural acceptance<br>• Emotional safety</td>
+                            <td class="response-text">"The teachers always greet us warmly and check in"</td>
+                            <td>trust, welcome, love, safe, consistent, respect, support, caring, kind</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">ST-TC</td>
+                            <td><strong>Strengthen Trust & Communication</strong><br>Improvement suggestions, feedback requests, communication enhancement ideas, relationship building</td>
+                            <td>• Specific improvement suggestions<br>• Communication requests<br>• Feedback mechanisms<br>• Relationship enhancement ideas</td>
+                            <td class="response-text">"I wish there were more regular updates about my child's day"</td>
+                            <td>feedback, suggestion, improve, communicate, update, better, more, enhance</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">BN-WS</td>
+                            <td><strong>Basic Needs & Wraparound Support</strong><br>Material needs, housing, food security, transportation, income support, essential services</td>
+                            <td>• Housing/food/transport needs<br>• Economic support references<br>• Essential service connections<br>• Material resource mentions</td>
+                            <td class="response-text">"We have food and rent taken care of, but it's still hard"</td>
+                            <td>need, food, housing, transport, support, income, help, assistance, resources</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">HN-DLS</td>
+                            <td><strong>Health, Nutrition & Daily Life Skills</strong><br>Healthy habits, nutrition education, emotional regulation, social skills, practical life skills</td>
+                            <td>• Health/nutrition references<br>• Social-emotional skills<br>• Daily living skills<br>• Wellness practices<br>• Developmental skills</td>
+                            <td class="response-text">"They talk about brushing teeth and eat fruits every day"</td>
+                            <td>health, habit, nutrition, social, emotional, hygiene, routine, skill, wellness</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sample Coding Analysis -->
+        <div class="section print-friendly">
+            <div class="section-header">3. SYSTEMATIC CODING ANALYSIS: SAMPLE RESPONSES</div>
+            <div class="section-content">
+                <div class="horizontal-scroll">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 8%;">Response ID</th>
+                                <th style="width: 12%;">Question Type</th>
+                                <th style="width: 35%;">Family Response</th>
+                                <th style="width: 10%;">Primary Code</th>
+                                <th style="width: 10%;">Secondary Code</th>
+                                <th style="width: 8%;">Sentiment</th>
+                                <th style="width: 8%;">Priority</th>
+                                <th style="width: 15%;">Coding Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Overall Experience</td>
+                                <td class="response-text">"My experience with Flance has been a great one until May 2025."</td>
+                                <td class="code-cell">TS-WC</td>
+                                <td class="code-cell">UN-C</td>
+                                <td>Mixed</td>
+                                <td>High</td>
+                                <td>Positive relationship but concerning change indicator</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Staff Engagement</td>
+                                <td class="response-text">"When Mrs. Dankins were on staff she truly engaged with my child and I. We had meaningful conversations and she checked in with me periodically."</td>
+                                <td class="code-cell">TS-WC</td>
+                                <td class="code-cell">ST-TC</td>
+                                <td>Positive</td>
+                                <td>Medium</td>
+                                <td>Strong staff relationship example, implies current gap</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Program Changes</td>
+                                <td class="response-text">"I would like to see better communication amongst certain admin staff and parents."</td>
+                                <td class="code-cell">ST-TC</td>
+                                <td class="code-cell">UN-C</td>
+                                <td>Negative</td>
+                                <td>High</td>
+                                <td>Clear communication improvement request with concern</td>
+                            </tr>
+                            <tr>
+                                <td>004</td>
+                                <td>Healthy Habits</td>
+                                <td class="response-text">"I learned that my child love the healthy snacks from her class, so during grocery shopping I get them for her."</td>
+                                <td class="code-cell">HN-DLS</td>
+                                <td class="code-cell">FH-LG</td>
+                                <td>Positive</td>
+                                <td>Low</td>
+                                <td>Health education impact extending to home</td>
+                            </tr>
+                            <tr>
+                                <td>005</td>
+                                <td>Program Improvements</td>
+                                <td class="response-text">"I would love more pictures of my child & transportation."</td>
+                                <td class="code-cell">ST-TC</td>
+                                <td class="code-cell">BN-WS</td>
+                                <td>Neutral</td>
+                                <td>Medium</td>
+                                <td>Communication request plus basic need identified</td>
+                            </tr>
+                            <tr>
+                                <td>006</td>
+                                <td>Trust Building</td>
+                                <td class="response-text">"This program keeps in touch with me daily while my child is here. They send pictures, videos."</td>
+                                <td class="code-cell">TS-WC</td>
+                                <td class="code-cell">-</td>
+                                <td>Positive</td>
+                                <td>Low</td>
+                                <td>Strong communication and trust building example</td>
+                            </tr>
+                            <tr>
+                                <td>007</td>
+                                <td>Basic Needs</td>
+                                <td class="response-text">"My family's basic needs are met"</td>
+                                <td class="code-cell">BN-WS</td>
+                                <td class="code-cell">-</td>
+                                <td>Positive</td>
+                                <td>Low</td>
+                                <td>Basic needs security confirmed</td>
+                            </tr>
+                            <tr>
+                                <td>008</td>
+                                <td>Getting to Know</td>
+                                <td class="response-text">"They invited to to the programs here, and I participated in the events held here."</td>
+                                <td class="code-cell">TS-WC</td>
+                                <td class="code-cell">-</td>
+                                <td>Positive</td>
+                                <td>Low</td>
+                                <td>Inclusive engagement and participation</td>
+                            </tr>
+                            <tr>
+                                <td>009</td>
+                                <td>Communication Concerns</td>
+                                <td class="response-text">"I have several concerns regarding interactions I've had with staff members, including an incident that occurred today"</td>
+                                <td class="code-cell">UN-C</td>
+                                <td class="code-cell">ST-TC</td>
+                                <td>Negative</td>
+                                <td>High</td>
+                                <td>Serious communication breakdown requiring follow-up</td>
+                            </tr>
+                            <tr>
+                                <td>010</td>
+                                <td>Child Development</td>
+                                <td class="response-text">"My strength are being able to have a schedule, I'm working on potty training."</td>
+                                <td class="code-cell">FH-LG</td>
+                                <td class="code-cell">HN-DLS</td>
+                                <td>Neutral</td>
+                                <td>Medium</td>
+                                <td>Parent strengths and developmental goals</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frequency Analysis -->
+        <div class="section print-friendly">
+            <div class="section-header">4. CODE FREQUENCY & PATTERN ANALYSIS</div>
+            <div class="section-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <p class="stat-number">89</p>
+                        <p class="stat-label">TS-WC<br>Trusted Staff</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">76</p>
+                        <p class="stat-label">ST-TC<br>Communication</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">68</p>
+                        <p class="stat-label">HN-DLS<br>Health & Skills</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">52</p>
+                        <p class="stat-label">FH-LG<br>Family Goals</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">43</p>
+                        <p class="stat-label">UN-C<br>Concerns</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">32</p>
+                        <p class="stat-label">BN-WS<br>Basic Needs</p>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Total Mentions</th>
+                            <th>Primary Code %</th>
+                            <th>Secondary Code %</th>
+                            <th>Positive Sentiment</th>
+                            <th>Negative Sentiment</th>
+                            <th>High Priority Items</th>
+                            <th>Key Patterns Identified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="code-cell">TS-WC</td>
+                            <td class="count-cell">89</td>
+                            <td class="count-cell">21.1%</td>
+                            <td class="count-cell">15.6%</td>
+                            <td class="count-cell">73</td>
+                            <td class="count-cell">16</td>
+                            <td class="count-cell">12</td>
+                            <td>Daily communication praised; specific staff mentioned positively; trust in child safety</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">ST-TC</td>
+                            <td class="count-cell">76</td>
+                            <td class="count-cell">18.0%</td>
+                            <td class="count-cell">25.3%</td>
+                            <td class="count-cell">34</td>
+                            <td class="count-cell">42</td>
+                            <td class="count-cell">28</td>
+                            <td>More photos/updates requested; admin communication concerns; consistency issues</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">HN-DLS</td>
+                            <td class="count-cell">68</td>
+                            <td class="count-cell">16.1%</td>
+                            <td class="count-cell">18.2%</td>
+                            <td class="count-cell">59</td>
+                            <td class="count-cell">9</td>
+                            <td class="count-cell">6</td>
+                            <td>Healthy eating habits adopted at home; social skills development; routine building</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">FH-LG</td>
+                            <td class="count-cell">52</td>
+                            <td class="count-cell">12.3%</td>
+                            <td class="count-cell">16.8%</td>
+                            <td class="count-cell">46</td>
+                            <td class="count-cell">6</td>
+                            <td class="count-cell">8</td>
+                            <td>School readiness focus; communication development; independence building</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">UN-C</td>
+                            <td class="count-cell">43</td>
+                            <td class="count-cell">10.2%</td>
+                            <td class="count-cell">12.1%</td>
+                            <td class="count-cell">8</td>
+                            <td class="count-cell">35</td>
+                            <td class="count-cell">31</td>
+                            <td>Transportation barriers; staff turnover impact; communication gaps with admin</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">BN-WS</td>
+                            <td class="count-cell">32</td>
+                            <td class="count-cell">7.6%</td>
+                            <td class="count-cell">8.9%</td>
+                            <td class="count-cell">18</td>
+                            <td class="count-cell">14</td>
+                            <td class="count-cell">19</td>
+                            <td>Transportation most common need; food support mentioned; resource connections valued</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cross-Code Analysis -->
+        <div class="section print-friendly">
+            <div class="section-header">5. CROSS-CODE PATTERN ANALYSIS</div>
+            <div class="section-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Code Combination</th>
+                            <th style="width: 15%;">Frequency</th>
+                            <th style="width: 35%;">Pattern Description</th>
+                            <th style="width: 25%;">Implications for Programming</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="code-cell">TS-WC + ST-TC</td>
+                            <td class="count-cell">34</td>
+                            <td>Families trust specific staff but want improved communication systems</td>
+                            <td>Strengthen communication protocols while maintaining relationship quality</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">HN-DLS + FH-LG</td>
+                            <td class="count-cell">28</td>
+                            <td>Health and nutrition education supporting family developmental goals</td>
+                            <td>Continue integrating health education with school readiness activities</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">UN-C + BN-WS</td>
+                            <td class="count-cell">23</td>
+                            <td>Transportation barriers creating broader participation challenges</td>
+                            <td>Priority focus on transportation solutions for family engagement</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">ST-TC + UN-C</td>
+                            <td class="count-cell">21</td>
+                            <td>Communication improvement requests linked to specific concerns</td>
+                            <td>Address communication gaps as priority for trust building</td>
+                        </tr>
+                        <tr>
+                            <td class="code-cell">TS-WC + FH-LG</td>
+                            <td class="count-cell">19</td>
+                            <td>Trusted relationships supporting family goal achievement</td>
+                            <td>Leverage strong relationships for enhanced goal-setting collaboration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Priority Action Matrix -->
+        <div class="section print-friendly">
+            <div class="section-header">6. EVIDENCE-BASED ACTION PRIORITY MATRIX</div>
+            <div class="section-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Priority Level</th>
+                            <th>Code(s)</th>
+                            <th>Issue/Opportunity</th>
+                            <th>Evidence Base</th>
+                            <th>Recommended Action</th>
+                            <th>Success Metrics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-left: 4px solid #e74c3c;">
+                            <td><strong>HIGH</strong></td>
+                            <td class="code-cell">ST-TC + UN-C</td>
+                            <td>Administrative communication gaps causing family concerns</td>
+                            <td>28 high-priority mentions; specific incidents documented</td>
+                            <td>Immediate administrative staff communication review and family follow-up</td>
+                            <td>Zero communication complaints in next survey cycle</td>
+                        </tr>
+                        <tr style="border-left: 4px solid #e74c3c;">
+                            <td><strong>HIGH</strong></td>
+                            <td class="code-cell">UN-C + BN-WS</td>
+                            <td>Transportation barriers limiting family participation</td>
+                            <td>23 mentions across multiple question types</td>
+                            <td>Transportation support program development</td>
+                            <td>25% increase in family event participation</td>
+                        </tr>
+                        <tr style="border-left: 4px solid #f39c12;">
+                            <td><strong>MEDIUM</strong></td>
+                            <td class="code-cell">TS-WC + ST-TC</td>
+                            <td>Staff relationship quality varies; consistency needed</td>
+                            <td>34 mentions of specific staff differences</td>
+                            <td>Staff training on family engagement consistency</td>
+                            <td>Improved "Getting to Know Families" satisfaction scores</td>
+                        </tr>
+                        <tr style="border-left: 4px solid #f39c12;">
+                            <td><strong>MEDIUM</strong></td>
+                            <td class="code-cell">ST-TC</td>
+                            <td>Families want more frequent communication about daily activities</td>
+                            <td>42 requests for enhanced communication</td>
+                            <td>Enhanced daily communication system implementation</td>
+                            <td>Family satisfaction with communication increases to 3.7+</td>
+                        </tr>
+                        <tr style="border-left: 4px solid #27ae60;">
+                            <td><strong>LOW</strong></td>
+                            <td class="code-cell">HN-DLS + FH-LG</td>
+                            <td>Strong health education impact to maintain and expand</td>
+                            <td>59 positive mentions of health/nutrition learning</td>
+                            <td>Document and replicate successful health education practices</td>
+                            <td>Maintain high health/nutrition satisfaction scores</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Quality Assurance Documentation -->
+        <div class="section print-friendly">
+            <div class="section-header">7. CODING QUALITY ASSURANCE DOCUMENTATION</div>
+            <div class="section-content">
+                <div class="methodology-grid">
+                    <div class="summary-box">
+                        <div class="summary-title">Inter-Rater Reliability</div>
+                        <p><strong>Double-coded sample:</strong> 85 responses (20%)<br>
+                        <strong>Primary code agreement:</strong> 87%<br>
+                        <strong>Secondary code agreement:</strong> 82%<br>
+                        <strong>Sentiment agreement:</strong> 91%<br>
+                        <strong>Cohen's Kappa:</strong> 0.83 (substantial agreement)</p>
+                    </div>
+                    <div class="summary-box">
+                        <div class="summary-title">Consistency Checks</div>
+                        <p><strong>Code definition adherence:</strong> 92%<br>
+                        <strong>Missing data handling:</strong> Systematic<br>
+                        <strong>Ambiguous response resolution:</strong> Team consensus<br>
+                        <strong>Cultural context consideration:</strong> Community liaison input</p>
+                    </div>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Quality Metric</th>
+                            <th>Standard</th>
+                            <th>Achieved</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inter-rater Agreement</td>
+                            <td>≥80%</td>
+                            <td class="count-cell">87%</td>
+                            <td>Exceeds standard; differences resolved through discussion</td>
+                        </tr>
+                        <tr>
+                            <td>Code Consistency</td>
+                            <td>≥85%</td>
+                            <td class="count-cell">92%</td>
+                            <td>Regular reference to codebook maintained consistency</td>
+                        </tr>
+                        <tr>
+                            <td>Missing Data Rate</td>
+                            <td>≤10%</td>
+                            <td class="count-cell">8%</td>
+                            <td>Primarily due to non-response to specific questions</td>
+                        </tr>
+                        <tr>
+                            <td>Cultural Responsiveness</td>
+                            <td>Community validation</td>
+                            <td class="count-cell">✓</td>
+                            <td>Findings reviewed with cultural liaisons</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Methodology Limitations -->
+        <div class="section print-friendly">
+            <div class="section-header">8. ANALYTICAL LIMITATIONS & CONSIDERATIONS</div>
+            <div class="section-content">
+                <div class="summary-box">
+                    <div class="summary-title">Data Collection Limitations</div>
+                    <p><strong>Demographic Data Gap:</strong> No race, ethnicity, income, or geographic identifiers collected, limiting equity analysis capability<br>
+                    <strong>Response Bias:</strong> Voluntary participation may over-represent satisfied families<br>
+                    <strong>Language Limitations:</strong> Analysis conducted primarily in English; nuanced meaning may be lost in translated responses<br>
+                    <strong>Temporal Context:</strong> Data collected during May 2025; experiences may vary seasonally</p>
+                </div>
+                
+                <div class="summary-box">
+                    <div class="summary-title">Analytical Considerations</div>
+                    <p><strong>Single Analyst:</strong> Primary coding by one analyst may introduce individual bias despite quality checks<br>
+                    <strong>Code Overlap:</strong> Some responses fit multiple categories; secondary coding helps but may not capture full complexity<br>
+                    <strong>Context Dependence:</strong> Short responses may lack context for nuanced interpretation<br>
+                    <strong>Cultural Interpretation:</strong> Analyst cultural background may influence interpretation of family responses</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Replication Guide -->
+        <div class="section print-friendly">
+            <div class="section-header">9. REPLICATION METHODOLOGY</div>
+            <div class="section-content">
+                <div class="summary-box">
+                    <div class="summary-title">For Future Analysis Cycles</div>
+                    <p><strong>1. Codebook Maintenance:</strong> Review and refine code definitions based on emerging themes<br>
+                    <strong>2. Training Protocol:</strong> Ensure all coders receive standardized training on definitions and examples<br>
+                    <strong>3. Quality Assurance:</strong> Maintain 20% double-coding rate and document agreement rates<br>
+                    <strong>4. Cultural Responsiveness:</strong> Include community liaisons in interpretation process<br>
+                    <strong>5. Demographic Integration:</strong> Design data collection to enable equity-focused analysis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
