@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flance Data Coding Spreadsheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+        }
+        
+        .tab-container {
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            background: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .tab:hover {
+            background: #bdc3c7;
+        }
+        
+        .tab.active:hover {
+            background: #2980b9;
+        }
+        
+        .tab-content {
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .spreadsheet-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .spreadsheet-table th {
+            background: #34495e;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #2c3e50;
+        }
+        
+        .spreadsheet-table td {
+            padding: 10px 8px;
+            border: 1px solid #bdc3c7;
+            vertical-align: top;
+        }
+        
+        .spreadsheet-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .spreadsheet-table tr:hover {
+            background: #e8f4f8;
+        }
+        
+        .code-cell {
+            background: #d5e8d4;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .description-cell {
+            max-width: 300px;
+        }
+        
+        .example-cell {
+            font-style: italic;
+            background: #fff2cc;
+            max-width: 250px;
+        }
+        
+        .keywords-cell {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .response-cell {
+            max-width: 400px;
+            line-height: 1.4;
+        }
+        
+        .coding-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #bdc3c7;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .summary-box {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .count-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .count-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .count-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+            margin: 0;
+        }
+        
+        .count-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin: 5px 0 0 0;
+        }
+        
+        .instructions {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        @media (max-width: 768px) {
+            .spreadsheet-table {
+                font-size: 12px;
+            }
+            
+            .spreadsheet-table th,
+            .spreadsheet-table td {
+                padding: 8px 4px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Flance Family Feedback Data Coding Spreadsheet</h1>
+            <p>Mixed Methods Analysis Tool for Family Survey Responses</p>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('codebook')">Codebook</button>
+                <button class="tab" onclick="showTab('coding')">Response Coding</button>
+                <button class="tab" onclick="showTab('analysis')">Analysis Summary</button>
+                <button class="tab" onclick="showTab('instructions')">Instructions</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Codebook Tab -->
+                <div id="codebook" class="tab-pane active">
+                    <h2>Flance Data Codebook</h2>
+                    <table class="spreadsheet-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">Code</th>
+                                <th style="width: 30%;">Description</th>
+                                <th style="width: 30%;">Example Quote</th>
+                                <th style="width: 25%;">Keywords/Indicators</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="code-cell">FH-LG</td>
+                                <td class="description-cell">
+                                    <strong>Family Hopes & Learning Goals</strong><br>
+                                    Describes aspirations for children's development, school readiness, and family growth
+                                </td>
+                                <td class="example-cell">"My child is learning to communicate better every day"</td>
+                                <td class="keywords-cell">goals, dreams, hopes, readiness, learn, grow, succeed, future, achieve, develop</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">UN-C</td>
+                                <td class="description-cell">
+                                    <strong>Unmet Needs & Concerns</strong><br>
+                                    Identifies systemic barriers, service gaps, logistical or emotional stressors
+                                </td>
+                                <td class="example-cell">"Transportation is sometimes a big challenge for us"</td>
+                                <td class="keywords-cell">barrier, issue, problem, gap, challenge, unmet, delay, difficulty, struggle, concern</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">TS-WC</td>
+                                <td class="description-cell">
+                                    <strong>Trusted Staff and Welcoming Culture</strong><br>
+                                    Reflects emotional safety, kindness, reliability, and consistent care by staff
+                                </td>
+                                <td class="example-cell">"The teachers always greet us warmly and check in"</td>
+                                <td class="keywords-cell">trust, welcome, love, safe, consistent, respect, support, caring, kind, reliable</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">ST-TC</td>
+                                <td class="description-cell">
+                                    <strong>Suggestions to Strengthen Trust & Communication</strong><br>
+                                    Highlights ideas for improvement, feedback loops, and communication practices
+                                </td>
+                                <td class="example-cell">"I wish there were more regular updates about my child's day"</td>
+                                <td class="keywords-cell">feedback, suggestion, improve, communicate, update, better, more, change, enhance</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">BN-WS</td>
+                                <td class="description-cell">
+                                    <strong>Basic Needs & Wraparound Support</strong><br>
+                                    Captures mentions of housing, food, transportation, income, and essential supports
+                                </td>
+                                <td class="example-cell">"We have food and rent taken care of, but it's still hard"</td>
+                                <td class="keywords-cell">need, food, housing, transport, support, income, help, assistance, resources, stability</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">HN-DLS</td>
+                                <td class="description-cell">
+                                    <strong>Health, Nutrition, & Daily Life Skills</strong><br>
+                                    Includes references to healthy habits, emotional regulation, and practical skills learned
+                                </td>
+                                <td class="example-cell">"They talk about brushing teeth and eat fruits every day"</td>
+                                <td class="keywords-cell">health, habit, nutrition, social, emotional, hygiene, routine, skill, wellness, development</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Response Coding Tab -->
+                <div id="coding" class="tab-pane">
+                    <h2>Response Coding Worksheet</h2>
+                    <div class="instructions">
+                        <h3>Coding Instructions:</h3>
+                        <p><strong>Primary Code:</strong> Select the main category that best fits the response<br>
+                        <strong>Secondary Code:</strong> If applicable, select a second category<br>
+                        <strong>Sentiment:</strong> Positive (+), Neutral (0), Negative (-)<br>
+                        <strong>Priority:</strong> High, Medium, Low based on urgency/importance</p>
+                    </div>
+                    
+                    <table class="spreadsheet-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 8%;">Response ID</th>
+                                <th style="width: 12%;">Question Type</th>
+                                <th style="width: 35%;">Family Response</th>
+                                <th style="width: 12%;">Primary Code</th>
+                                <th style="width: 12%;">Secondary Code</th>
+                                <th style="width: 8%;">Sentiment</th>
+                                <th style="width: 8%;">Priority</th>
+                                <th style="width: 15%;">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Overall Experience</td>
+                                <td class="response-cell">"My experience with Flance has been a great one until May 2025."</td>
+                                <td><select class="coding-input"><option>TS-WC</option><option>FH-LG</option><option>UN-C</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>None</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Medium</option><option>High</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Staff Engagement</td>
+                                <td class="response-cell">"When Mrs. Dankins were on staff she truly engaged with my child and I. We had meaningful conversations and she checked in with me periodically."</td>
+                                <td><select class="coding-input"><option>TS-WC</option><option>FH-LG</option><option>UN-C</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>ST-TC</option><option>None</option><option>FH-LG</option><option>UN-C</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>High</option><option>Medium</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Program Changes</td>
+                                <td class="response-cell">"I would like to see better communication amongst certain admin staff and parents."</td>
+                                <td><select class="coding-input"><option>ST-TC</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>UN-C</option><option>None</option><option>FH-LG</option><option>TS-WC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>-</option><option>+</option><option>0</option></select></td>
+                                <td><select class="coding-input"><option>High</option><option>Medium</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>004</td>
+                                <td>Healthy Habits</td>
+                                <td class="response-cell">"I learned that my child love the healthy snacks from her class, so during grocery shopping I get them for her."</td>
+                                <td><select class="coding-input"><option>HN-DLS</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option></select></td>
+                                <td><select class="coding-input"><option>FH-LG</option><option>None</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option></select></td>
+                                <td><select class="coding-input"><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Medium</option><option>High</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>005</td>
+                                <td>Program Improvements</td>
+                                <td class="response-cell">"I would love more pictures of my child & transportation."</td>
+                                <td><select class="coding-input"><option>ST-TC</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>BN-WS</option><option>None</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Medium</option><option>High</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>006</td>
+                                <td>Trust Building</td>
+                                <td class="response-cell">"This program keeps in touch with me daily while my child is here. They send pictures, videos."</td>
+                                <td><select class="coding-input"><option>TS-WC</option><option>FH-LG</option><option>UN-C</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>None</option><option>FH-LG</option><option>UN-C</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Low</option><option>High</option><option>Medium</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <!-- Additional empty rows for more coding -->
+                            <tr>
+                                <td>007</td>
+                                <td><input type="text" class="coding-input" placeholder="Question type..."></td>
+                                <td class="response-cell"><input type="text" class="coding-input" placeholder="Family response..." style="height: 60px;"></td>
+                                <td><select class="coding-input"><option>Select...</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>None</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>Select...</option><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Select...</option><option>High</option><option>Medium</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                            <tr>
+                                <td>008</td>
+                                <td><input type="text" class="coding-input" placeholder="Question type..."></td>
+                                <td class="response-cell"><input type="text" class="coding-input" placeholder="Family response..." style="height: 60px;"></td>
+                                <td><select class="coding-input"><option>Select...</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>None</option><option>FH-LG</option><option>UN-C</option><option>TS-WC</option><option>ST-TC</option><option>BN-WS</option><option>HN-DLS</option></select></td>
+                                <td><select class="coding-input"><option>Select...</option><option>+</option><option>0</option><option>-</option></select></td>
+                                <td><select class="coding-input"><option>Select...</option><option>High</option><option>Medium</option><option>Low</option></select></td>
+                                <td><input type="text" class="coding-input" placeholder="Analysis notes..."></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Analysis Summary Tab -->
+                <div id="analysis" class="tab-pane">
+                    <h2>Coding Analysis Summary</h2>
+                    
+                    <div class="summary-box">
+                        <div class="summary-title">Code Frequency Analysis</div>
+                        <div class="count-grid">
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Family Hopes & Learning Goals (FH-LG)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Unmet Needs & Concerns (UN-C)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Trusted Staff & Culture (TS-WC)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Strengthen Trust & Communication (ST-TC)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Basic Needs & Support (BN-WS)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Health, Nutrition & Skills (HN-DLS)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-box">
+                        <div class="summary-title">Sentiment Analysis</div>
+                        <div class="count-grid">
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Positive Sentiment (+)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Neutral Sentiment (0)</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Negative Sentiment (-)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-box">
+                        <div class="summary-title">Priority Level Distribution</div>
+                        <div class="count-grid">
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">High Priority</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Medium Priority</p>
+                            </div>
+                            <div class="count-item">
+                                <p class="count-number">--</p>
+                                <p class="count-label">Low Priority</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Top Themes by Code</h3>
+                    <table class="spreadsheet-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Most Common Themes</th>
+                                <th>High Priority Items</th>
+                                <th>Action Implications</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="code-cell">FH-LG</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[High priority learning goals]</td>
+                                <td>[Programming implications]</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">UN-C</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[Urgent unmet needs]</td>
+                                <td>[Service gaps to address]</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">TS-WC</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[Trust building priorities]</td>
+                                <td>[Staff development needs]</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">ST-TC</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[Communication improvements]</td>
+                                <td>[Policy/procedure changes]</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">BN-WS</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[Essential support needs]</td>
+                                <td>[Resource development]</td>
+                            </tr>
+                            <tr>
+                                <td class="code-cell">HN-DLS</td>
+                                <td>[To be populated based on coding]</td>
+                                <td>[Health/nutrition priorities]</td>
+                                <td>[Curriculum enhancements]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Instructions Tab -->
+                <div id="instructions" class="tab-pane">
+                    <h2>Data Coding Instructions</h2>
+                    
+                    <div class="instructions">
+                        <h3>Step 1: Prepare Your Data</h3>
+                        <p>1. Copy all family responses from your survey into the "Response Coding" tab<br>
+                        2. Include response ID, question type, and full family response text<br>
+                        3. One row per response segment (may need multiple rows for long responses)</p>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h3>Step 2: Apply Primary Codes</h3>
+                        <p><strong>FH-LG (Family Hopes & Learning Goals):</strong> Use when families discuss aspirations, goals, school readiness, child development hopes<br>
+                        <strong>UN-C (Unmet Needs & Concerns):</strong> Use for barriers, challenges, gaps in service, stressors, problems<br>
+                        <strong>TS-WC (Trusted Staff & Welcoming Culture):</strong> Use for positive staff interactions, feeling welcome, safety, trust<br>
+                        <strong>ST-TC (Strengthen Trust & Communication):</strong> Use for suggestions, improvement ideas, communication requests<br>
+                        <strong>BN-WS (Basic Needs & Wraparound Support):</strong> Use for housing, food, transportation, financial, material needs<br>
+                        <strong>HN-DLS (Health, Nutrition & Daily Life Skills):</strong> Use for healthy habits, nutrition, hygiene, social-emotional skills</p>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h3>Step 3: Apply Secondary Codes (if applicable)</h3>
+                        <p>Some responses may fit multiple categories. Use secondary coding when a response clearly addresses two themes. For example: "I love how the teachers help my child eat healthy foods, but I wish they would tell me more about what he eats each day" would be:<br>
+                        Primary: HN-DLS (health/nutrition focus)<br>
+                        Secondary: ST-TC (communication suggestion)</p>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h3>Step 4: Assign Sentiment</h3>
+                        <p><strong>Positive (+):</strong> Appreciation, satisfaction, praise, gratitude<br>
+                        <strong>Neutral (0):</strong> Factual statements, neutral suggestions, balanced feedback<br>
+                        <strong>Negative (-):</strong> Concerns, complaints, frustration, disappointment</p>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h3>Step 5: Determine Priority Level</h3>
+                        <p><strong>High:</strong> Urgent needs, serious concerns, safety issues, repeated themes<br>
+                        <strong>Medium:</strong> Important improvements, helpful suggestions, moderate concerns<br>
+                        <strong>Low:</strong> Nice-to-have improvements, minor issues, general positive feedback</p>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h3>Step 6: Analyze and Report</h3>
+                        <p>1. Review the Analysis Summary tab for patterns<br>
+                        2. Identify the most frequent codes and high-priority items<br>
+                        3. Look for intersections (e.g., communication issues + trust concerns)<br>
+                        4. Develop action plans based on coded themes<br>
+                        5. Share findings with team using evidence from coded responses</p>
+                    </div>
+                    
+                    <div class="summary-box">
+                        <div class="summary-title">Quality Assurance Tips</div>
+                        <p><strong>Inter-rater Reliability:</strong> Have a second person code 10-20% of responses to check consistency<br>
+                        <strong>Code Definitions:</strong> Refer back to the codebook regularly to maintain consistency<br>
+                        <strong>Context Matters:</strong> Consider the full response context, not just keywords<br>
+                        <strong>Family Voice:</strong> When in doubt, ask "What is this family really trying to tell us?"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all tab panes
+            const panes = document.querySelectorAll('.tab-pane');
+            panes.forEach(pane => pane.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab pane
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
